@@ -15,8 +15,8 @@
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
-  #JHM Enable vulkan
-  nixGL.vulkan.enable = true;
+  #JHM TODO: Enable vulkan
+  # nixGL.vulkan.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -107,6 +107,7 @@
         { appId = "org.chromium.Chromium"; origin = "flathub"; }
         { appId = "md.obsidian.Obsidian"; origin = "flathub"; }
         { appId = "dev.zed.Zed"; origin = "flathub"; }
+        { appId = "com.slack.Slack"; origin = "flathub"; }
     ];
 
     #JHM Enabling auto-updates for flatpaks
