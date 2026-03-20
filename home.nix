@@ -99,11 +99,11 @@
 
     packages = [
       {
-        appId = "com.bitwarden.desktop";
+        appId = "io.gitlab.librewolf-community";
         origin = "flathub";
       }
       {
-        appId = "io.gitlab.librewolf-community";
+        appId = "com.bitwarden.desktop";
         origin = "flathub";
       }
       {
@@ -123,6 +123,13 @@
         origin = "flathub";
       }
     ];
+
+    #JHM Grant Librewolf camera access
+    overrides = {
+      "io.gitlab.librewolf-community".Context = {
+        devices = [ "all" ];
+      };
+    };
 
     #JHM Enabling auto-updates for flatpaks
     update = {
