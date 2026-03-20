@@ -148,5 +148,12 @@
     fi
   '';
 
-  programs.fish.enable = true;
+  #JHM Fish config
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      fish_config theme choose base16-default
+      fish_config prompt choose default
+    '';
+  };
 }
