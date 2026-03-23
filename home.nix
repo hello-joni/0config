@@ -46,7 +46,6 @@
 
     #JHM My installed packages through Home Manager itself
     micro
-    distrobox
 
     #JHM Language server for Nix
     nil
@@ -54,6 +53,10 @@
 
     #JHM unfree packages
     claude-code
+
+    #JHM wthings
+    distrobox
+    gnumake
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
