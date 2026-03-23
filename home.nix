@@ -6,6 +6,7 @@
 }:
 
 {
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jhen";
@@ -20,6 +21,14 @@
 
   #JHM TODO: Enable vulkan for fixing zed
   # nixGL.vulkan.enable = true;
+
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   #JHM Unfree packages
   nixpkgs.config.allowUnfreePredicate =
