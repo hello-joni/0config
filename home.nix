@@ -46,6 +46,7 @@
 
     #JHM My installed packages through Home Manager itself
     micro
+    distrobox
 
     #JHM Language server for Nix
     nil
