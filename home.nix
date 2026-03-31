@@ -71,25 +71,29 @@
     enable = true;
     settings = {
       devices = {
-        sumac = {
-          id = "AY7LJTM-F5BRYPE-FDCXAGE-AJLP7TU-JW3PRMX-L6HX754-CK3MUGZ-KLEJWAB";
+        # Phone (introducer, since its config isn't managed by Nix anyways)
+        ginger = {
+          id = "ROA5SZQ-OA33NRK-2NNBO5R-QVVW3FQ-DBFUWP6-XTQ4UKJ-M2D66T6-UAFPFAQ";
           introducer = true;
         };
-        ginger.id = "ROA5SZQ-OA33NRK-2NNBO5R-QVVW3FQ-DBFUWP6-XTQ4UKJ-M2D66T6-UAFPFAQ";
+
+        # DigitalOcean server
+        sumac.id = "AY7LJTM-F5BRYPE-FDCXAGE-AJLP7TU-JW3PRMX-L6HX754-CK3MUGZ-KLEJWAB";
+
+        # Laptop
         saffron.id = "T2F7ICT-EMNBQH6-TBDQ4DE-7X7J57J-QCGWIS2-VXBN4HB-LRGNZUZ-AFI5IQF";
       };
       folders."~/0everything" = {
         id = "0everything";
         devices = [
-          "sumac"
           "ginger"
+          "sumac"
           "saffron"
         ];
       };
     };
   };
 
-  # TODO: Only need to enable GUI apps on machines with a screen
   services.flatpak = {
     enable = true;
     update = {
