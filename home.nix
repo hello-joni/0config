@@ -20,7 +20,7 @@
     ];
   };
 
-  # Any unfree packages have to be specified here
+  # Any unfree ;_; packages have to be specified here
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
@@ -31,7 +31,7 @@
     micro # Lightweight text editor
     nil # Nix language server
     nixd # Nix language server
-    claude-code # AI coding agent
+    claude-code # Proprietary AI coding agent ;_;
   ];
 
   programs.git = {
@@ -94,6 +94,7 @@
     };
   };
 
+  # Generally, prefer Flatpak for isolated GUI apps, since it has some sandboxing
   services.flatpak = {
     enable = true;
     update = {
@@ -102,31 +103,76 @@
     };
     packages = [
       {
+        # Preferred browser (Firefox fork)
         appId = "io.gitlab.librewolf-community";
         origin = "flathub";
       }
       {
-        appId = "com.bitwarden.desktop";
-        origin = "flathub";
-      }
-      {
+        # Keep Chromium around for the odd Firefox-incompatible website
         appId = "org.chromium.Chromium";
         origin = "flathub";
       }
       {
+        # Password manager
+        appId = "com.bitwarden.desktop";
+        origin = "flathub";
+      }
+      {
+        # Notes app - proprietary ;_;
         appId = "md.obsidian.Obsidian";
         origin = "flathub";
       }
       {
+        # GUI text editor
         appId = "dev.zed.Zed";
         origin = "flathub";
       }
+      {
+        # Chat app - Matrix client
+        appId = "im.fluffychat.Fluffychat";
+        origin = "flathub";
+      }
+      {
+        # Chat app - Signal desktop
+        appId = "org.signal.Signal";
+        origin = "flathub";
+      }
+      {
+        # Chat app - proprietary ;_;
+        appId = "com.discordapp.Discord";
+        origin = "flathub";
+      }
+      {
+        # Pleasant e-reader
+        appId = "com.github.johnfactotum.Foliate";
+        origin = "flathub";
+      }
+      {
+        # Office suite
+        appId = "org.libreoffice.LibreOffice";
+        origin = "flathub";
+      }
+      {
+        # Streaming service aggregator
+        appId = "com.stremio.Stremio";
+        origin = "flathub";
+      }
+      {
+        # Video player
+        appId = "io.mpv.Mpv";
+        origin = "flathub";
+      }
+      {
+        # Flashcards
+        appId = "net.ankiweb.Anki";
+        origin = "flathub";
+      }
     ];
-    # Librewolf needs camera access for video calls
     overrides = {
-      "io.gitlab.librewolf-community".Context = {
-        devices = [ "all" ];
-      };
+      # Librewolf needs camera access for video calls
+      "io.gitlab.librewolf-community".Context.devices = [ "all" ];
+      # Use GNOME keyring instead of plaintext password store
+      "org.signal.Signal".Environment.SIGNAL_PASSWORD_STORE = "gnome-libsecret";
     };
   };
 }
