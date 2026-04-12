@@ -20,10 +20,31 @@
   ];
 
   # Disable SELinux labeling for containers globally
+  # Disable SELinux labeling for containers globally
   home.file.".config/containers/containers.conf".text = ''
     [containers]
     label = false
   '';
+
+  # SSH alias for pushing to personal GitHub repos from work machine
+  programs.ssh = {
+    enable = true;
+    matchBlocks."github-personal" = {
+      hostname = "github.com";
+      identityFile = "~/.ssh/personal_key";
+      identitiesOnly = true;
+    };
+  };
+
+  # Use personal git identity for 0config repo even on work machine
+  home.file.".config/git/config-0config".text = ''
+    [user]
+      name = Joni Hendrickson
+      email = contact@joni.site
+  '';
+  programs.git.settings.includeIf."gitdir:~/0config/" = {
+    path = "~/.config/git/config-0config";
+  };
 
   dconf.settings."org/gnome/shell" = {
     favorite-apps = [
