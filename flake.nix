@@ -27,26 +27,31 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     let
-      mkHome = modules: home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit nixgl; };
-        modules = [ ./modules/base.nix ] ++ modules;
-      };
+      mkHome =
+        modules:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit nixgl; };
+          inherit modules;
+        };
     in
     {
       homeConfigurations = {
         "desktop" = mkHome [
+          ./modules/base.nix
+          ./modules/syncthing.nix
           ./modules/graphical.nix
           ./modules/personal.nix
-          ./modules/syncthing.nix
           nix-flatpak.homeManagerModules.nix-flatpak
         ];
         "work" = mkHome [
+          ./modules/base.nix
           ./modules/graphical.nix
           ./modules/work.nix
           nix-flatpak.homeManagerModules.nix-flatpak
         ];
         "server" = mkHome [
+          ./modules/base.nix
           ./modules/syncthing.nix
         ];
       };
