@@ -7,8 +7,6 @@
   - line numbers
   - turn off "indent using tabs"
   - folder for new attachments
-- Differential "work mode" vs "home mode" git configs
-- "server-mode" install (no GUI apps)
 - Switch off GitHub (for Codeberg?)
 - Set up server for easy selfhosted deployments? Docker?
 - RSS feed reader which syncs between phone and computer
