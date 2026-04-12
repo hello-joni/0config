@@ -1,6 +1,6 @@
 # Work Machine Setup
 
-Supplement to the main README. These steps isolate personal credentials from the work environment.
+Supplement to the LAPTOP_SETUP.md - these steps isolate personal credentials from the work environment.
 
 ## 1. Generate a personal SSH key
 

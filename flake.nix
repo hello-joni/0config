@@ -36,7 +36,7 @@
     in
     {
       homeConfigurations = {
-        "desktop" = mkHome {
+        "laptop" = mkHome {
           modules = [
             ./modules/base.nix
             ./modules/syncthing.nix
