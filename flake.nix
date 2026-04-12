@@ -57,6 +57,7 @@
           modules = [
             ./modules/base.nix
             ./modules/syncthing.nix
+            { home.homeDirectory = "/home/jhen"; }
           ];
         };
         "phone" = mkHome {
