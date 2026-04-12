@@ -26,13 +26,22 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
-    {
-      homeConfigurations."jhen" = home-manager.lib.homeManagerConfiguration {
+    let
+      mkHome = modules: home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit nixgl; };
-        modules = [
-          ./home.nix
+        modules = [ ./modules/base.nix ] ++ modules;
+      };
+    in
+    {
+      homeConfigurations = {
+        "desktop" = mkHome [
+          ./modules/graphical.nix
+          ./modules/syncthing.nix
           nix-flatpak.homeManagerModules.nix-flatpak
+        ];
+        "server" = mkHome [
+          ./modules/syncthing.nix
         ];
       };
     };
