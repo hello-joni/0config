@@ -15,16 +15,21 @@
         };
 
         # DigitalOcean server
-        sumac.id = "AY7LJTM-F5BRYPE-FDCXAGE-AJLP7TU-JW3PRMX-L6HX754-CK3MUGZ-KLEJWAB";
+        cayenne.id = "WWUKSOV-7RTMEK5-464TFFY-JHMUAPJ-EOO7I5I-L4NB4E6-UHB5357-SP636QU";
 
         # Laptop
         saffron.id = "T2F7ICT-EMNBQH6-TBDQ4DE-7X7J57J-QCGWIS2-VXBN4HB-LRGNZUZ-AFI5IQF";
       };
       folders."~/0everything" = {
         id = "0everything";
+        order = "newest";
+        versioning = {
+          type = "staggered";
+          params.maxAge = "31536000"; # 1 year in seconds
+        };
         devices = [
           "ginger"
-          "sumac"
+          "cayenne"
           "saffron"
         ];
       };
