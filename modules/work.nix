@@ -32,6 +32,7 @@
   # SSH alias for pushing to personal GitHub repos from work machine
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks."github-personal" = {
       hostname = "github.com";
       identityFile = "~/.ssh/personal_key";
