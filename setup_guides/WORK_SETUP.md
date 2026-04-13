@@ -17,12 +17,3 @@ The `github-personal` SSH host is configured by `work.nix` to route through `~/.
 ```bash
 git clone git@github-personal:averagewagon/0config.git ~/0config
 ```
-
-
-## 3. After each reboot
-
-```bash
-ssh-add ~/.ssh/personal_key
-```
-
-Enter the Bitwarden password when prompted.
