@@ -21,6 +21,7 @@
     '')
     foxglove-studio
     pixi
+    gh
     graphviz # Visualizing `dot` graphs
   ];
 
