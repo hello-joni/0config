@@ -21,6 +21,7 @@
     '')
     foxglove-studio
     pixi
+    graphviz # Visualizing `dot` graphs
   ];
 
   # Disable SELinux labeling for containers globally
