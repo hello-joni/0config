@@ -43,6 +43,7 @@
             ./modules/syncthing.nix
             ./modules/graphical.nix
             ./modules/personal.nix
+            ./modules/llm-client.nix
             nix-flatpak.homeManagerModules.nix-flatpak
           ];
         };
@@ -60,6 +61,13 @@
             ./modules/base.nix
             ./modules/dev.nix
             ./modules/syncthing.nix
+            { home.homeDirectory = "/home/jhen"; }
+          ];
+        };
+        "llmServer" = mkHome {
+          modules = [
+            ./modules/base.nix
+            ./modules/llm-server.nix
             { home.homeDirectory = "/home/jhen"; }
           ];
         };
