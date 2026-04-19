@@ -4,11 +4,8 @@
 }:
 
 {
-  allowedUnfreePackages = [ "claude-code" ];
-
   home.packages = with pkgs; [
     nil # Nix language server
-    claude-code # Proprietary AI coding agent ;_;
     prettier # Markdown/JSON/YAML/etc formatter
     htop # View running processes
 
