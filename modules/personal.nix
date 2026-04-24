@@ -15,12 +15,6 @@
       "org.gnome.Nautilus.desktop"
       "org.gnome.Ptyxis.desktop"
       "dev.zed.Zed.desktop"
-      "im.fluffychat.Fluffychat.desktop"
-      "org.signal.Signal.desktop"
-      "com.discordapp.Discord.desktop"
-      "com.stremio.Stremio.desktop"
-      "net.ankiweb.Anki.desktop"
-      "subsurface.desktop"
       "me.proton.Pass.desktop"
       "md.obsidian.Obsidian.desktop"
     ];
