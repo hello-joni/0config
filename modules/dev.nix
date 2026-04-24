@@ -52,11 +52,6 @@
     '')
   ];
 
-  programs.keychain = {
-    enable = true;
-    keys = [ "personal_key" ];
-  };
-
   home.file.".prettierrc.yaml".text = ''
     proseWrap: always
     printWidth: 100
