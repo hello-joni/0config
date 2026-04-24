@@ -31,5 +31,5 @@ Copy the public key:
 cat ~/.ssh/personal_key.pub
 ```
 
-Add the public key to the Proton Pass Login item and
+Add the public key to the Proton Pass Login item as a note and
 upload it anywhere else it's needed (e.g GitHub).
