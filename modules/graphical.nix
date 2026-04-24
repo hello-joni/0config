@@ -210,7 +210,7 @@
       }
       {
         # Password manager
-        appId = "com.bitwarden.desktop";
+        appId = "me.proton.Pass";
         origin = "flathub";
       }
       {

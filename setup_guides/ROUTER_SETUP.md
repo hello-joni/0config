@@ -6,7 +6,7 @@ Steps to set up an OpenWRT One router after a firmware update.
 
 Using the LuCI webpage, Update OpenWRT One firmware and factory reset settings.
 
-Connect to the router via Ethernet and open LuCI at `http://192.168.1.1`. Set the root password (generate in Bitwarden).
+Connect to the router via Ethernet and open LuCI at `http://192.168.1.1`. Set the root password (generate in Proton Pass).
 
 ## 2. Wireless
 

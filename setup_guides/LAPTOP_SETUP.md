@@ -61,11 +61,11 @@ Flatpak apps (including Librewolf) and Syncthing are now installed and running.
 Set up an SSH key for this machine (see [SSH_KEYS.md](./credentials/SSH_KEYS.md)), then load it and clone 0config:
 
 ```bash
-# Create a new BW login: ssh/<hostname>_personal_key
-# Generate a password in Bitwarden for the new key
+# Create a new Proton Pass login: ssh/<hostname>_personal_key
+# Generate a password in Proton Pass for the new key
 ssh-keygen -t ed25519 -C "contact@joni.site" -f ~/.ssh/personal_key
 ssh-add -t 8h ~/.ssh/personal_key
-# store in BW item; upload to github.com/settings/keys
+# store in Proton Pass item; upload to github.com/settings/keys
 cat ~/.ssh/personal_key.pub
 ```
 

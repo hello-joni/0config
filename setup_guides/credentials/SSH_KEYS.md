@@ -15,7 +15,7 @@ Re-run this each session, or after the timeout expires.
 Each machine gets its own key. Keys never leave the device they were
 generated on.
 
-In the Bitwarden GUI, create a Login item named
+In the Proton Pass GUI, create a Login item named
 `ssh/<hostname>_<keyname>` with a generated strong password in the
 password field.
 
@@ -31,5 +31,5 @@ Copy the public key:
 cat ~/.ssh/personal_key.pub
 ```
 
-Add the public key to the Bitwarden Login item and
+Add the public key to the Proton Pass Login item and
 upload it anywhere else it's needed (e.g GitHub).

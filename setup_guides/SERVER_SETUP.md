@@ -4,11 +4,11 @@ Steps to set up a new DigitalOcean Fedora droplet with 0config.
 
 ## 1. Create the droplet
 
-Create a DigitalOcean droplet with Fedora as the OS. DigitalOcean requires an SSH key during setup — generate one and store it in Bitwarden. (You can skip using it and log into root through the DigitalOcean console instead.)
+Create a DigitalOcean droplet with Fedora as the OS. DigitalOcean requires an SSH key during setup — generate one and store it in Proton Pass. (You can skip using it and log into root through the DigitalOcean console instead.)
 
 ## 2. As root (from DigitalOcean console)
 
-Create user with password (generate in Bitwarden):
+Create user with password (generate in Proton Pass):
 
 ```bash
 useradd -m jhen
@@ -41,13 +41,13 @@ ssh <hostname>
 Set up an SSH key for this machine (see [SSH_KEYS.md](./credentials/SSH_KEYS.md)), then load it and clone 0config:
 
 ```bash
-# Create a new BW login: ssh/<hostname>_personal_key
-# Generate a password in Bitwarden for the new key
+# Create a new Proton Pass login: ssh/<hostname>_personal_key
+# Generate a password in Proton Pass for the new key
 ssh-keygen -t ed25519 -C "contact@joni.site" -f ~/.ssh/personal_key
 eval "$(ssh-agent -s)"
 # Adding the key to the ssh-agent for 8 hours
 ssh-add -t 8h ~/.ssh/personal_key
-# store in BW item; upload to github.com/settings/keys
+# store in Proton Pass item; upload to github.com/settings/keys
 cat ~/.ssh/personal_key.pub
 git clone git@github.com:hello-joni/0config.git
 ```

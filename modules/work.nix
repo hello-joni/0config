@@ -7,7 +7,6 @@
   programs.git.settings.user.email = "jonathan.hendrickson@bonsairobotics.ai";
 
   home.packages = with pkgs; [
-    bitwarden-cli
     distrobox
     gnumake
     vcs2l
@@ -67,7 +66,7 @@
       "org.gnome.Nautilus.desktop"
       "org.gnome.Ptyxis.desktop"
       "dev.zed.Zed.desktop"
-      "com.bitwarden.desktop.desktop"
+      "me.proton.Pass.desktop"
       "md.obsidian.Obsidian.desktop"
       "com.slack.Slack.desktop"
     ];

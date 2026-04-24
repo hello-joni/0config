@@ -7,7 +7,6 @@
 {
   home.packages = with pkgs; [
     (config.lib.nixGL.wrap subsurface) # Dive log software
-    bitwarden-cli
   ];
 
   dconf.settings."org/gnome/shell" = {
@@ -22,7 +21,7 @@
       "com.stremio.Stremio.desktop"
       "net.ankiweb.Anki.desktop"
       "subsurface.desktop"
-      "com.bitwarden.desktop.desktop"
+      "me.proton.Pass.desktop"
       "md.obsidian.Obsidian.desktop"
     ];
   };

@@ -9,21 +9,21 @@ See [SSH_KEYS.md](./credentials/SSH_KEYS.md) for more info.
 The strategy for SSH keys here is to keep work and personal keys separate.
 
 ```bash
-# Create a new BW login: ssh/<hostname>_personal_key
-# Generate a password in Bitwarden for the new key
+# Create a new Proton Pass login: ssh/<hostname>_personal_key
+# Generate a password in Proton Pass for the new key
 ssh-keygen -t ed25519 -C "contact@joni.site" -f ~/.ssh/personal_key
 # Adding the key to the ssh-agent for 8 hours
 ssh-add -t 8h ~/.ssh/personal_key
-cat ~/.ssh/personal_key.pub  # store in BW item; upload to personal GitHub
+cat ~/.ssh/personal_key.pub  # store in Proton Pass item; upload to personal GitHub
 ```
 
 ```bash
-# Create a new BW login: ssh/<hostname>_work_key
-# Generate a password in Bitwarden for the new key
+# Create a new Proton Pass login: ssh/<hostname>_work_key
+# Generate a password in Proton Pass for the new key
 ssh-keygen -t ed25519 -C "jonathan.hendrickson@bonsairobotics.ai" -f ~/.ssh/work_key
 # Adding the key to the ssh-agent for 8 hours
 ssh-add -t 8h ~/.ssh/work_key
-# store in BW item; upload to work GitHub
+# store in Proton Pass item; upload to work GitHub
 cat ~/.ssh/work_key.pub
 ```
 
