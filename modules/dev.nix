@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     nil # Nix language server
     prettier # Markdown/JSON/YAML/etc formatter
-    htop # View running processes
     distrobox # Virtual machines for dev
 
     # Git diagnostic aliases (credit: Ally Piechowski)

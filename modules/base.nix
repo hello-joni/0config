@@ -27,6 +27,7 @@
     home.packages = with pkgs; [
       micro # Lightweight text editor
       bat # cat with highlighting
+      htop # View running processes
     ];
 
     programs.git = {
