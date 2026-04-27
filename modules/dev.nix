@@ -52,9 +52,7 @@
       git log --oneline --since="''${1:-1 year ago}" | grep -iE 'revert|hotfix|emergency|rollback'
     '')
 
-    # Idempotent DNS record upsert against DNSimple. Filters by type via API,
-    # by name locally - cannot affect records of any type other than the one
-    # passed in. Reads DNSIMPLE_TOKEN and DNSIMPLE_ACCOUNT_ID from env.
+    # Update DNS records on DNSimple
     (writeShellScriptBin ",dnsimple-set" ''
       set -euo pipefail
 

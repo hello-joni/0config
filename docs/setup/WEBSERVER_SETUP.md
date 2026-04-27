@@ -81,14 +81,13 @@ From a machine with `dev.nix` activated, set the apex and `www` records for both
 the `,dnsimple-set` helper:
 
 ```bash
-export DNSIMPLE_TOKEN=...      # generate at DNSimple: Account -> Automation -> User access tokens
-export DNSIMPLE_ACCOUNT_ID=... # numeric ID, visible in your DNSimple dashboard URL
-
 ,dnsimple-set joni.site ""  A    <ipv4>
 ,dnsimple-set joni.site ""  AAAA <ipv6>
 ,dnsimple-set joni.site www A    <ipv4>
 ,dnsimple-set joni.site www AAAA <ipv6>
 ```
+
+The scripts will prompt for the DNSimple account ID and API token from Proton Pass.
 
 `,dnsimple-set` is an idempotent upsert: it lists records of the given type only, filters by exact
 name locally, and PATCHes if exactly one match exists or POSTs a new one. It refuses to act if
@@ -118,10 +117,18 @@ This creates the `caddy` system user and the `caddy.service` systemd unit, which
 
 ## 6. Open the firewall
 
-Rocky uses firewalld by default:
+Install firewalld (not in Rocky's minimal cloud image) and enable it:
 
 ```bash
-sudo firewall-cmd --permanent --add-service=http --add-service=https --add-port=443/udp
+sudo dnf install -y firewalld
+sudo systemctl enable --now firewalld
+```
+
+Open the web ports:
+
+```bash
+sudo firewall-cmd --permanent --add-service=http --add-service=https
+sudo firewall-cmd --permanent --add-port=443/udp
 sudo firewall-cmd --reload
 ```
 
@@ -152,16 +159,7 @@ sudo restorecon -R /home/jhen/sites
 This labels the site tree as web content for SELinux. New files created here (rsync, etc.) inherit
 the label automatically.
 
-## 8. Activate Home Manager
-
-```bash
-nix-shell -p home-manager
-home-manager switch --flake ~/0config#webserver -b backup
-```
-
-This generates `~/.config/caddy/Caddyfile` from `modules/webserver.nix`.
-
-## 9. Point the system Caddy at the generated config
+## 8. Point the system Caddy at the generated config
 
 ```bash
 sudo rm /etc/caddy/Caddyfile
@@ -178,7 +176,7 @@ curl -I https://joni.site
 
 The first request triggers Caddy's ACME / Let's Encrypt flow and the cert lands automatically.
 
-## 10. Deploy site content
+## 9. Deploy site content
 
 From the build machine, rsync the static site output to `~/sites/joni.site/`:
 
@@ -186,4 +184,4 @@ From the build machine, rsync the static site output to `~/sites/joni.site/`:
 rsync -av --delete ./public/ jhen@<hostname>:~/sites/joni.site/
 ```
 
-Caddy serves the new files on the next request, no reload needed.
+Caddy serves the new files on the next request.
