@@ -65,7 +65,6 @@
       "org.gnome.Nautilus.desktop"
       "org.gnome.Ptyxis.desktop"
       "dev.zed.Zed.desktop"
-      "me.proton.Pass.desktop"
       "md.obsidian.Obsidian.desktop"
       "com.slack.Slack.desktop"
     ];

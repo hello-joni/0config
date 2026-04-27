@@ -34,15 +34,6 @@
     adwaita-qt6 # Adwaita theme for Qt6 apps
   ];
 
-  # Override individual app icons with MoreWaita's Adwaita-styled versions
-  # (their bundled icons clash with the dock). User hicolor takes XDG priority
-  # over flatpak/nix-store hicolor, so these win without a full theme install.
-  home.file = {
-    ".local/share/icons/hicolor/scalable/apps/me.proton.Pass.svg".source = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/somepaulo/MoreWaita/v49/scalable/apps/proton-pass.svg";
-      hash = "sha256-rn4ixFYyyLj9cvQPIbpRmwwkcljrPsd/aGIv5U2z8cM=";
-    };
-  };
 
   # GUI text editor
   programs.zed-editor = {
@@ -216,11 +207,6 @@
       {
         # Keep Chromium around for the odd Firefox-incompatible website
         appId = "org.chromium.Chromium";
-        origin = "flathub";
-      }
-      {
-        # Password manager
-        appId = "me.proton.Pass";
         origin = "flathub";
       }
       {
